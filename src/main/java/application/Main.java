@@ -6,8 +6,8 @@ public class Main {
     public static void main(String[] args) {
         String url = "jdbc:mysql://localhost:3306/new_schema";
         String user = "root";
-        String pasword = "";
-        try (Connection conn = DriverManager.getConnection(url, user, pasword);
+        String password = "";
+        try (Connection conn = DriverManager.getConnection(url, user, password);
         Statement statement = conn.createStatement();
         ResultSet resultSet = statement.executeQuery("SELECT * FROM productos");
         ) {

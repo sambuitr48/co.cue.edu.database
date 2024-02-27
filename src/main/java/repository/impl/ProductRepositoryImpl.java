@@ -13,17 +13,17 @@ public class ProductRepositoryImpl implements Repository <Product>{
         return DatabaseConnection.getInstance();
     }
     private Product createProduct(ResultSet resultSet) throws SQLException {
-        Product producto = new Product();
-        producto.setId(resultSet.getString("id"));
-        producto.setName(resultSet.getString("name"));
-        producto.setPrice(resultSet.getDouble("price"));
-        producto.setRegistrationDate(
-                resultSet.getObject("registrationDate") != null ?
-                        resultSet.getDate("registrationDate")
+        Product product = new Product();
+        product.setId(resultSet.getLong("id"));
+        product.setName(resultSet.getString("nombre"));
+        product.setPrice(resultSet.getDouble("precio"));
+        product.setRegistrationDate(
+                resultSet.getObject("fecha_registro") != null ?
+                        resultSet.getDate("fecha_registro")
                                 .toInstant()
                                 .atZone(ZoneId.systemDefault())
                                 .toLocalDateTime() : null);
-        return producto;
+        return product;
     }
 
     @Override
